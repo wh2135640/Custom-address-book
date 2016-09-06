@@ -132,8 +132,8 @@ self.searchResultTableView.hidden = YES;
     
     NSString *condition = self.searchBar.text;
     
-    for (modeObject *model in self.dataArray) {
-        NSString *content = model.nameString;
+    for (ClubListModel *model in self.dataArray) {
+        NSString *content = [NSString stringWithFormat:@"%@",model.club_name];
         if ([content containsString:condition]) {
             [self.searchResults addObject:model];
         }
@@ -416,8 +416,8 @@ self.searchResultTableView.hidden = YES;
 //        cellsearchResult.alpha = 0.5;
         cellsearchResult.textLabel.textColor = [UIColor colorWithHexString:@"#999999"];;
         cellsearchResult.textLabel.font = [UIFont systemFontOfSize:16];
-        modeObject *followM = _searchResults[indexPath.row];
-        cellsearchResult.textLabel.text = followM.nameString;
+        ClubListModel *followM = _searchResults[indexPath.row];
+        cellsearchResult.textLabel.text = followM.club_name;
         cellsearchResult.textLabel.textColor = [UIColor redColor];
         cellsearchResult.textLabel.textColor = [UIColor colorWithHexString:@"#99999"];
         return cellsearchResult;
